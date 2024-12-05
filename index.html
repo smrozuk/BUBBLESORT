@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="a">
+    <input type="number" id="b">
+    <input type="number" id="c">
+    <input type="number" id="d">
+    <input type="number" id="e">
+    <button onclick="uruchom()">URUCHOM</button>
+    <div id="div"></div>
+    <script>
+        let tab = [];
+        const div = document.querySelector("#div");
+        function uruchom(){
+        tab.push(parseInt(document.querySelector("#a").value));
+        tab.push(parseInt(document.querySelector("#b").value));
+        tab.push(parseInt(document.querySelector("#c").value));
+        tab.push(parseInt(document.querySelector("#d").value));
+        tab.push(parseInt(document.querySelector("#e").value));
+        let dlugosc = tab.length;
+
+        for(let i=0; i < dlugosc; i++){
+            for(let j = 0; j < dlugosc-i- 1; j++){
+                if(tab[j] > tab[j + 1]){
+                    let zmienna = tab[j];
+                    tab[j] = tab[j+1];
+                    tab[j+1] = zmienna;
+                }
+            }
+            div.innerHTML = tab;
+        }
+        }
+    </script>
+</body>
+</html>
